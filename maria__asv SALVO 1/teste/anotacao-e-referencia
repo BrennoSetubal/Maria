@@ -1,0 +1,88 @@
+import speech_recognition as sr
+
+rec = sr.Recognizer()
+mic = sr.Microphone()
+
+with mic as source:
+    print("Diga alguma coisa...")
+    audio = rec.listen(source)
+
+try:
+    texto = rec.recognize_google(audio, language="pt-BR")
+    print("Texto reconhecido:", texto)
+except sr.UnknownValueError:
+    print("Não foi possível reconhecer a fala. Por favor, tente novamente.")
+
+futuramente usar uma biblioteca reconhecedora offline a VOSK
+
+https://youtu.be/HJuhrBm8AC8
+
+configuração de de voz :
+
+mudar a voz;
+vozes = engine.getProperty('voices')
+engine.setProperty(voice, voices[-n].id)
+
+
+commands:
+  # hora
+  - command:
+    input: Que horas são?
+    entity: time
+    action: getTime
+
+  - command:
+    input: Me diga as horas.
+    entity: time
+    action: getTime
+  # data
+  - command:
+    input: Qual é a data de hoje?
+    entity: time
+    action: getDate
+
+  - command:
+    input: Data de hoje.
+    entity: time
+    action: getDate
+  # clima
+  - command:
+    input: Previsão do tempo.
+    entity: weather
+    action: getWearther
+
+  - command:
+    input: Como está o tempo.
+    entity: weather
+    action: getWearther
+
+  - command:
+    input: Como esta o tempo.
+    entity: weather
+    action: getWearther
+
+  - command:
+    input: Como esta o tempo hoje.
+    entity: weather
+    action: getWearther
+
+  - command:
+    input: Como está o clima.
+    entity: weather
+    action: getWearther
+
+  # open
+  - command:
+    input: Abrir google.
+    entity: open
+    action:
+
+  - command:
+    input: Abra o google.
+    entity: open
+    action:
+
+  - command:
+    input: Abra o youtube.
+    entity: open
+    action:
